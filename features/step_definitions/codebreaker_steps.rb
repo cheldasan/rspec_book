@@ -8,7 +8,7 @@ class Output
   end
 end
 
-def output
+def output_double
   @output ||= Output.new
 end
 
@@ -16,10 +16,10 @@ Given("I am not yet playing") do
 end
 
 When("I start a new game") do
-  game = Codebreaker::Game.new output
+  game = Codebreaker::Game.new output_double
   game.start
 end
 
 Then("I should see {string}") do |string|
-  output.messages.should include(string)
+  expect(output_double.messages).to include(string)
 end
