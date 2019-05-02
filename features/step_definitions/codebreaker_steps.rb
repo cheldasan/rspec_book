@@ -25,12 +25,11 @@ Then("I should see {string}") do |message|
 end
 
 Given("the secret code is {string}") do |secret|
-  game = Codebreaker::Game.new(output_double)
-  game.start(secret)
+  @game = Codebreaker::Game.new(output_double)
+  @game.start(secret)
 end
 
 When("I guess {string}") do |guess|
-  @game = Codebreaker::Game.new(output_double)
   @game.guess(guess)
 end
 
